@@ -8,9 +8,9 @@
         html, body {
             height: 100%;
             margin: 0;
-            background-color: #05050a;
+            background-color: #030308;
             color: #fff;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
             overflow: hidden;
         }
         #container {
@@ -19,106 +19,148 @@
         }
         #menu {
             position: absolute;
-            bottom: 20px;
+            bottom: 25px;
             width: 100%;
             text-align: center;
             z-index: 10;
         }
         button {
-            background: rgba(0, 255, 200, 0.1);
+            background: rgba(0, 255, 200, 0.15);
             color: #00ffc8;
-            border: 1px solid #00ffc8;
-            padding: 10px 20px;
-            margin: 0 5px;
+            border: 2px solid #00ffc8;
+            padding: 12px 24px;
+            margin: 0 8px;
+            font-size: 14px;
             font-weight: bold;
             text-transform: uppercase;
             cursor: pointer;
-            border-radius: 4px;
-            transition: all 0.3s ease;
+            border-radius: 6px;
+            letter-spacing: 1px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
         button:hover, button.active {
             background: #00ffc8;
-            color: #05050a;
-            box-shadow: 0 0 15px #00ffc8;
+            color: #030308;
+            box-shadow: 0 0 20px #00ffc8;
+            transform: translateY(-2px);
         }
-        /* Element Styling */
+        
+        /* --- ENHANCED VISIBILITY ELEMENT STYLING --- */
         .element {
-            width: 120px;
-            height: 160px;
-            box-shadow: 0px 0px 12px rgba(0,255,200,0.5);
-            border: 1px solid rgba(0,255,200,0.25);
+            width: 140px;
+            height: 180px;
+            box-shadow: 0px 0px 15px rgba(0, 255, 200, 0.3);
+            border: 2px solid #00ffc8;
             text-align: center;
             cursor: pointer;
-            background-color: rgba(5, 15, 25, 0.8);
-            transition: all 0.2s ease;
+            /* Frosted glass style for thick, opaque visual grounding */
+            background-color: rgba(10, 20, 35, 0.95); 
+            border-radius: 8px;
+            transition: all 0.25s ease;
         }
         .element:hover {
-            box-shadow: 0px 0px 20px rgba(0,255,255,0.75);
-            border: 1px solid rgba(0,255,255,0.75);
-            background-color: rgba(5, 25, 40, 0.9);
+            box-shadow: 0px 0px 30px rgba(0, 255, 255, 0.9);
+            border: 2px solid #ffffff;
+            background-color: rgba(15, 35, 60, 1);
+            transform: scale(1.05);
         }
+        /* Top right atomic serial number */
         .element .number {
             position: absolute;
-            top: 10px;
-            right: 10px;
-            font-size: 12px;
-            color: rgba(0,255,200,0.7);
+            top: 12px;
+            right: 12px;
+            font-size: 14px;
+            font-weight: 800;
+            color: #00ffc8;
         }
+        /* Massive high-contrast main letter symbol */
         .element .symbol {
             position: absolute;
-            top: 40px;
+            top: 38px;
             left: 0;
             right: 0;
-            font-size: 40px;
-            font-weight: bold;
+            font-size: 48px;
+            font-weight: 900;
             color: #ffffff;
-            text-shadow: 0 0 10px rgba(255,255,255,0.3);
+            text-shadow: 0 0 12px rgba(255, 255, 255, 0.6);
+            letter-spacing: -1px;
         }
+        /* Full element text reading name */
         .element .name {
             position: absolute;
-            bottom: 30px;
-            left: 0;
-            right: 0;
-            font-size: 11px;
-            font-weight: bold;
-            color: rgba(255,255,255,0.75);
+            bottom: 34px;
+            left: 5px;
+            right: 5px;
+            font-size: 13px;
+            font-weight: 700;
+            color: #ffffff;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
+        /* Pure crystal white/cyan for atomic mass values */
         .element .weight {
             position: absolute;
             bottom: 12px;
             left: 0;
             right: 0;
-            font-size: 10px;
-            color: rgba(0,255,200,0.5);
+            font-size: 12px;
+            font-weight: 600;
+            color: #a0ffea;
         }
-        /* Info Overlay Modal */
+
+        /* --- HIGH VISIBILITY DIALOG MODAL --- */
         #details-modal {
             display: none;
             position: fixed;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            background: rgba(10, 20, 30, 0.95);
-            border: 2px solid #00ffc8;
-            padding: 30px;
-            width: 350px;
+            background: rgba(8, 16, 28, 0.98);
+            border: 3px solid #00ffc8;
+            padding: 35px;
+            width: 380px;
             z-index: 100;
-            border-radius: 8px;
-            box-shadow: 0 0 30px rgba(0,255,200,0.4);
+            border-radius: 12px;
+            box-shadow: 0 0 40px rgba(0, 255, 200, 0.6);
         }
-        #details-modal h2 { margin-top: 0; color: #00ffc8; font-size: 28px;}
-        #details-modal p { margin: 10px 0; font-size: 16px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 5px;}
-        #details-modal span { float: right; color: #00ffc8; font-weight: bold;}
+        #details-modal h2 { 
+            margin-top: 0; 
+            color: #ffffff; 
+            font-size: 42px; 
+            border-bottom: 2px solid #00ffc8;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        #details-modal p { 
+            margin: 14px 0; 
+            font-size: 18px; 
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15); 
+            padding-bottom: 8px;
+            color: #e0e0e0;
+        }
+        #details-modal span { 
+            float: right; 
+            color: #00ffc8; 
+            font-weight: 800;
+        }
         #close-btn {
             background: #ff3b30;
             color: white;
             border: none;
-            padding: 8px 15px;
+            padding: 12px 15px;
             width: 100%;
-            margin-top: 15px;
+            margin-top: 20px;
             cursor: pointer;
+            font-size: 16px;
             font-weight: bold;
-            border-radius: 4px;
+            border-radius: 6px;
+            text-transform: uppercase;
+            box-shadow: 0 4px 10px rgba(255, 59, 48, 0.3);
+            transition: background 0.2s;
+        }
+        #close-btn:hover {
+            background: #e0241b;
         }
     </style>
 </head>
@@ -147,7 +189,6 @@
     <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/renderers/CSS3DRenderer.js"></script>
 
     <script>
-        // Data format: [Symbol, Name, Mass, Grid_X, Grid_Y, Configuration]
         const tableData = [
             ["H", "Hydrogen", "1.008", 1, 1, "1s1"], ["He", "Helium", "4.0026", 18, 1, "1s2"],
             ["Li", "Lithium", "6.94", 1, 2, "[He] 2s1"], ["Be", "Beryllium", "9.0122", 2, 2, "[He] 2s2"],
@@ -218,24 +259,38 @@
         animate();
 
         function init() {
-            // Camera Setup
             camera = new THREE.PerspectiveCamera(40, window.innerWidth / window.innerHeight, 1, 10000);
             camera.position.z = 3000;
 
             scene = new THREE.Scene();
 
-            // Populate Elements into the Scene
+            // Function to dynamically assign border colors based on element groupings
+            function getColorByGroup(x, y, symbol) {
+                if (symbol === "H") return "#00ffc8"; // Nonmetal
+                if (x === 1) return "#ff4d4d";       // Alkali Metals
+                if (x === 2) return "#ff9933";       // Alkaline Earth
+                if (x === 18) return "#cc66ff";      // Noble Gases
+                if (x >= 3 && x <= 12) return "#ffdb4d"; // Transition Metals
+                if (y === 9 || y === 10) return "#ff66cc"; // Lanthanides & Actinides
+                return "#00ffc8";                    // Other Nonmetals/Metalloids
+            }
+
             for (let i = 0; i < tableData.length; i++) {
                 const item = tableData[i];
 
                 const element = document.createElement('div');
                 element.className = 'element';
                 
-                // Add click handler to inspect detailed data
+                // Color coding borders for layout structure visibility
+                const groupColor = getColorByGroup(item[3], item[4], item[0]);
+                element.style.borderColor = groupColor;
+                element.style.boxShadow = `0px 0px 15px ${groupColor}44`;
+                
                 element.addEventListener('click', () => showDetails(item, i + 1));
 
                 const number = document.createElement('div');
                 number.className = 'number';
+                number.style.color = groupColor;
                 number.textContent = i + 1;
                 element.appendChild(number);
 
@@ -251,11 +306,11 @@
 
                 const weight = document.createElement('div');
                 weight.className = 'weight';
+                weight.style.color = groupColor;
                 weight.textContent = item[2];
                 element.appendChild(weight);
 
                 const objectCSS = new THREE.CSS3DObject(element);
-                // Instantiate in random scatter arrangement initially
                 objectCSS.position.x = Math.random() * 4000 - 2000;
                 objectCSS.position.y = Math.random() * 4000 - 2000;
                 objectCSS.position.z = Math.random() * 4000 - 2000;
@@ -263,33 +318,32 @@
 
                 objects.push(objectCSS);
 
-                // --- 1. Target Layout Design: FLAT PERIODIC TABLE ---
                 const objectTable = new THREE.Object3D();
-                objectTable.position.x = (item[3] * 140) - 1330;
-                objectTable.position.y = - (item[4] * 180) + 990;
+                objectTable.position.x = (item[3] * 160) - 1520; // Expanded spacing slightly
+                objectTable.position.y = - (item[4] * 200) + 1100;
                 targets.table.push(objectTable);
             }
 
-            // --- 2. Target Layout Design: 3D GLOBE / SPHERE ---
+            // Globe Calculation
             const vector = new THREE.Vector3();
             for (let i = 0, l = objects.length; i < l; i++) {
                 const phi = Math.acos(- 1 + (2 * i) / l);
                 const theta = Math.sqrt(l * Math.PI) * phi;
 
                 const objectSphere = new THREE.Object3D();
-                objectSphere.position.setFromSphericalCoords(800, phi, theta);
+                objectSphere.position.setFromSphericalCoords(850, phi, theta);
                 vector.copy(objectSphere.position).multiplyScalar(2);
                 objectSphere.lookAt(vector);
                 targets.sphere.push(objectSphere);
             }
 
-            // --- 3. Target Layout Design: 3D HELIX / SPIRAL ---
+            // Helix Calculation
             for (let i = 0, l = objects.length; i < l; i++) {
                 const theta = i * 0.175 + Math.PI;
-                const y = - (i * 8) + 450;
+                const y = - (i * 9) + 500;
 
                 const objectHelix = new THREE.Object3D();
-                objectHelix.position.setFromCylindricalCoords(900, theta, y);
+                objectHelix.position.setFromCylindricalCoords(1000, theta, y);
                 vector.x = objectHelix.position.x * 2;
                 vector.y = objectHelix.position.y;
                 vector.z = objectHelix.position.z * 2;
@@ -297,30 +351,25 @@
                 targets.helix.push(objectHelix);
             }
 
-            // CSS3D Engine Rendering Init
             renderer = new THREE.CSS3DRenderer();
             renderer.setSize(window.innerWidth, window.innerHeight);
             document.getElementById('container').appendChild(renderer.domElement);
 
-            // Interaction Controls
             controls = new THREE.OrbitControls(camera, renderer.domElement);
             controls.enableDamping = true;
             controls.dampingFactor = 0.05;
             controls.minDistance = 500;
             controls.maxDistance = 6000;
 
-            // Trigger mapping to GUI options
             setupButton('table');
             setupButton('sphere');
             setupButton('helix');
 
-            // Start inside Default Table View
             transform(targets.table, 2000);
 
             window.addEventListener('resize', onWindowResize);
         }
 
-        // Tween Layout morph logic
         function transform(target, duration) {
             TWEEN.removeAll();
             for (let i = 0; i < objects.length; i++) {
